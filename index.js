@@ -1,6 +1,4 @@
-import "./styles.css";
-
-var serverURL = "https://api.funtranslations.com/translate/minion.json";
+var serverURL = "https://api.funtranslations.com/translate/pig-latin.json";
 
 var txtInput = document.querySelector("#txt-input");
 //console.log(txtInput)

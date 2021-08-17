@@ -4,35 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Banana Speak</title>
+    <title>Piglet Chit-chat</title>
     <link href="styles.css" rel="stylesheet" />
   </head>
 
   <body>
     <nav>
-      <!-- <img id="nav-image" src="images/minions.jpg" /> -->
-      <div id="nav-heading">Banana Talk</div>
-      <!-- <img id="nav-image" src="images/minions.jpg"> -->
+      <!-- <img id="nav-image" src="images/piglet.png" /> -->
+      <h2 id="nav-heading">Piglet Chit-Chats</h2>
     </nav>
 
     <div class="main">
-      <textarea
-        id="txt-input"
-        placeholder="Enter the message here to get the Banana translation of it"
-      ></textarea>
-      <button id="btn-translate">Translate to banana</button>
-      <div>Translation will come below 👇</div>
-      <div id="div-output"></div>
+      <div class="container">
+        <h3>Type your text below to convert it to Pig Latin</h3>
+        <textarea
+          class="conatiner-text"
+          id="txt-input"
+          placeholder="Please type in your text here so that you can check its converrsion in Piglet chit-chats ..."
+        ></textarea>
+      </div>
+
+      <button id="btn-translate">Translate 👉</button>
+
+      <div class="container">
+        <h3>Below is the piglet conversion</h3>
+        <div class="conatiner-text" id="div-output"></div>
+      </div>
     </div>
 
     <script src="index.js" type="text/javascript"></script>
 
     <footer>
-      <div>about</div>
+      <div><b>about</b></div>
       <p>
-        Use the translataor to convert English language to Banana language that
-        Mininons speak. Try out different sentences to know their meaning in
-        Mininons language.
+        Convert from English to Pig Latin. Pig Latin takes the first consonant
+        (or consonant cluster) of an English word, moves it to the end of the
+        word and suffixes an ay.
       </p>
     </footer>
   </body>
