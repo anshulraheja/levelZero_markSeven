@@ -1,32 +1,43 @@
-var serverURL = "https://api.funtranslations.com/translate/pig-latin.json";
+import "./styles.css";
 
+var serverURL = "https://api.funtranslations.com/translate/pirate.json";
 var txtInput = document.querySelector("#txt-input");
-//console.log(txtInput)
-
 var btnTranslate = document.querySelector("#btn-translate");
-//console.log(btnTranslate)
+var divOutput = document.querySelector("#div-output");
+var loader = document.querySelector(".lds-ring");
+
 btnTranslate.addEventListener("click", clickHandler);
 
-var divOutput = document.querySelector("#div-output");
-//console.log(divOutput)
+function clickHandler() {
+  displayLoading();
+  console.log("clicked");
+  var inputText = txtInput.value;
+  fetch(getTranslationURL(inputText))
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      hideLoading();
+      var translatedText = json.contents.translated;
+      divOutput.innerText = translatedText;
+    })
+    .catch(errorHandler);
+}
 
 function getTranslationURL(text) {
   return serverURL + "?text=" + text;
 }
 
 function errorHandler(error) {
-  console.log("error occured", error);
-  alert("Something went wong with server! try again aftersometime.");
+  alert("Something went wong with server! Try after sometime.");
 }
 
-function clickHandler() {
-  var inputText = txtInput.value;
+// show loading spinner
+function displayLoading() {
+  loader.classList.add("display");
+}
 
-  fetch(getTranslationURL(inputText))
-    .then((response) => response.json())
-    .then((json) => {
-      var translatedText = json.contents.translated;
-      divOutput.innerText = translatedText;
-    })
-    .catch(errorHandler);
+// hiding loading spinner
+function hideLoading() {
+  loader.classList.remove("display");
 }
